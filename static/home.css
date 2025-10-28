@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --primary-color: dodgerblue;
+  --secondary-color: darkslategray;
+  --accent-color: orange;
+  --background-color: aliceblue;
+  --card-bg: white;
+  --text-color: darkslategray;
+  --font-family: 'Lato', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "new existing";
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr;
+  gap: 32px;
+  justify-items: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  padding: 32px;
+}
+
+h1 {
+  grid-area: header;
+  font-size: 44px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--secondary-color);
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+.newemployee,
+.employeedata {
+  grid-area: new, existing;
+  background-color: var(--card-bg);
+  width: 240px;
+  height: 240px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.employeedata {
+  grid-area: existing;
+}
+
+.newemployee:hover,
+.employeedata:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.newemployee img,
+.employeedata img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 19px;
+}
+
+.newemployee a,
+.employeedata a {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  border: 2px solid var(--primary-color);
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.newemployee a:hover,
+.employeedata a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  body {
+    grid-template-areas:
+      "header"
+      "new"
+      "existing";
+    grid-template-columns: 1fr;
+  }
+}

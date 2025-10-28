@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Employee Management</title>
+		<link rel="stylesheet" href="{{url_for('static',filename='home.css')}}">
+	</head>
+	<body>
+		<h1>EMPLOYEE MANAGEMENT SYSTEM</h1>		<div class="newemployee">
+			<img src="static/write.png">
+			<a href={{url_for("newemployee")}}>NEW EMPLOYEE</a>
+		</div>
+		<div class="employeedata">
+			<img src="static/create.png">
+			<a href={{url_for("employeedata")}}>EXISTING EMPLOYEE</a>
+		</div>
+		{% with messages = get_flashed_messages(with_categories=true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					<div class="alert alert-{{ category }}">{{ message }}</div>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+
+	</body>
+</html>

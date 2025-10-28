@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<title>Existing Employee</title>
+		<link rel="stylesheet" href="{{url_for('static',filename='employeedata.css')}}">
+	</head>
+	<body>
+		<h1>EMPLOYEE DATA MANAGEMENT</h1>
+		<table>
+			<tr>
+				<th>EMP ID</th>
+				<th>EMPLOYEE NAME</th>
+				<th>LOCATION</th>
+				<th>CONTACT NO</th>
+				<th>ROLE</th>
+				<th>DEPARTMENT</th>
+				<th>EDIT</th>
+				<th>DELETE</th>
+			</tr>
+			{%for data in datas%}
+				<tr>
+					<td>{{data.emp_id}}</td>
+					<td>{{data.employeename}}</td>
+					<td>{{data.location}}</td>
+					<td>{{data.contactno}}</td>
+					<td>{{data.role}}</td>
+					<td>{{data.department}}</td>
+					<td><a href="{{url_for('editemployee',id=data.emp_id)}}">EDIT</a></td>
+					<td><a href="{{url_for('deleteemployee',id=data.emp_id)}}" id="del">DELETE</a></td>
+				</tr>
+			{%endfor%}
+		</table>
+			<div class="dltpop" id="popup" style="display: none;">
+				<p>Are you sure want to delete this</p>
+				<button class="yesbtn" id="yesbtn">YES</button>
+				<button class="nobtn" id="nobtn">NO</button>
+			</div>
+		<script>
+			const del = document.getElementById("del");
+			const popup = document.getElementById("popup");
+			const yesbtn = document.getElementById("yesbtn");
+			const nobtn = document.getElementById("nobtn");
+			
+			dlt.addEventListener("click",function(event){
+				event.preventDefault();
+				popup.style.display = "block";
+			});
+			
+			yesbtn.addEventListener("click",function() {
+				popup.style.display = "none";
+				alert("Deleted");
+			});
+			nobtn.addEventListener("click",function() {
+				popup.style.display = "none";
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --primary-color: dodgerblue;
+  --secondary-color:darkslategray;
+  --accent-color:orange;
+  --background-color:aliceblue;
+  --card-bg:white;
+  --text-color:darkslategray;
+  --font-family:'Lato', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 16px;
+  border-collapse: collapse;
+  background-color: var(--card-bg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid lightgray;
+}
+
+table th {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 18px;
+}
+
+table td {
+  font-size: 16px;
+}
+
+table tr:hover {
+  background-color: #f2f2f2;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+.popup{
+	display:none;
+	position: fixed;
+	top:0; left: 0; right:0; bottom:0;
+	background: rgba 0,0,0,0.5;
+	align-items: center;
+	justify-content: center;
+}
+.dltpop{
+	background: white;
+	padding:20px;
+	border-radius:8px;
+	text-align:center;
+	width:300px;
+}
+.popup button{
+	margin:10px;
+	padding:8px 16px;
+	cursor:pointer;
+}
+.popup button.yesbtn{
+	background-color:red;
+	color:white;
+	border: none;
+}
+.popup button.nobtn{
+	background-color:red;
+	color:white;
+	border: none;
+}
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  table th, table td {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+}

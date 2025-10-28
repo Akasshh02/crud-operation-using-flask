@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --primary-color: dodgerblue;
+  --secondary-color: darkslategray;
+  --accent-color: orange;
+  --background-color: aliceblue;
+  --card-bg: white;
+  --text-color: darkslategray;
+  --font-family: 'Lato', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+}
+
+h1 {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+form {
+  background-color: var(--card-bg);
+  width: 100%;
+  max-width: 600px;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
+}
+
+form label {
+  font-weight: 600;
+  color: var(--secondary-color);
+  align-self: center;
+}
+
+form input[type="text"] {
+  width: 100%;
+  padding: 10px 12px; 
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+}
+
+form input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+form input[type="submit"] {
+  grid-column: span 2;
+  justify-self: end;
+  background-color: var(--primary-color);
+  color: white; 
+  border: none;
+  padding: 12px 32px; 
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  form input[type="submit"] {
+    justify-self: center;
+  }
+}
